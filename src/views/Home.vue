@@ -142,46 +142,62 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-8 d-none d-lg-block">
+                        <div class="col-6 col-lg-8 d-none d-lg-block">
                             <div class="custom-grid">
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
-                                        <div class="col-12 py-4"></div>
-                                        <div class="col-12"><img class="w-60" :src="aws" /></div>
-                                        <div class="col-12"><img class="w-60" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-60" :src="node" /></div>
+                                       
+                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
+                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
+                                        <div class="col-12"><img class="w-50" :src="node" /></div>
+                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
+                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
+                                        <div class="col-12"><img class="w-50" :src="node" /></div>
                                     </div>
                                 </marquee>
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
-                                        <div class="col-12"><img class="w-60" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-60" :src="node" /></div>
-                                        <div class="col-12"><img class="w-60" :src="java" /></div>
+                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
+                                        <div class="col-12"><img class="w-50" :src="node" /></div>
+                                        <div class="col-12"><img class="w-50" :src="java" /></div>
+                                         <div class="col-12"><img class="w-50" :src="jankins" /></div>
+                                        <div class="col-12"><img class="w-50" :src="node" /></div>
+                                        <div class="col-12"><img class="w-50" :src="java" /></div>
                                     </div>
                                 </marquee>
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
-                                        <div class="col-12 py-4"></div>
-                                        <div class="col-12"><img class="w-60" :src="react" /></div>
-                                        <div class="col-12"><img class="w-60" :src="java" /></div>
-                                        <div class="col-12"><img class="w-60" :src="jankins" /></div>
+                                        
+                                        <div class="col-12"><img class="w-50" :src="react" /></div>
+                                        <div class="col-12"><img class="w-50" :src="java" /></div>
+                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
+                                         <div class="col-12"><img class="w-50" :src="react" /></div>
+                                        <div class="col-12"><img class="w-50" :src="java" /></div>
+                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
                                     </div>
                                 </marquee>
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
-                                        <div class="col-12"><img class="w-60" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-60" :src="node" /></div>
-                                        <div class="col-12"><img class="w-60" :src="aws" /></div>
+                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
+                                        <div class="col-12"><img class="w-50" :src="node" /></div>
+                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
+                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
+                                        <div class="col-12"><img class="w-50" :src="node" /></div>
+                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
                                     </div>
                                 </marquee>
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
-                                        <div class="col-12 py-4"></div>
-                                        <div class="col-12"><img class="w-60" :src="java" /></div>
-                                        <div class="col-12"><img class="w-60" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-60" :src="react" /></div>
+                                       
+                                        <div class="col-12"><img class="w-50" :src="java" /></div>
+                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
+                                        <div class="col-12"><img class="w-50" :src="react" /></div>
+                                        <div class="col-12"><img class="w-50" :src="java" /></div>
+                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
+                                        <div class="col-12"><img class="w-50" :src="react" /></div>
                                     </div>
                                 </marquee>
+                                
                             </div>
                         </div>
                         <div class="col-12 d-block d-lg-none pt-3">

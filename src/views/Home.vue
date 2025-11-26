@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="header-title mx-auto">
-                    AI Powered Platform for Building <span style="color: #FFCA00; font-weight: 800;">Day-1-Onboarding Talent</span>  Accelerated on 
+                    AI Powered Platform for Building <span style="color: #FFCA00; font-weight: 600;">Day-1-Onboarding Talent</span>  Accelerated on 
                     GCC Devlabs for Career Readiness Specialized DeepTech and FinTech.
                 </div>
 
@@ -75,12 +75,10 @@
                         <div class="description">—ONE PLATFROM TO LEARN, BUILD, AND<br></br> GET HIRED ALL IN CAMPUS WALLS.</div>
                         <button class="btn rounded-pill button px-3 my-lg-5 my-4">ScaleGrad Mission</button>
                     </div>
-                    <div class="col-12 col-lg-7 d-none d-lg-block">
+                    <div class="col-12 col-lg-7  d-lg-block">
                         <img :src="s1000016895" style="width: 100%"/>
                     </div>
-                     <div class="col-12 col-lg-7 d-block d-lg-none">
-                        <img :src="s1000016770" style="width: 100%"/>
-                    </div>
+                    
                 </div>
             </div>
             
@@ -149,39 +147,39 @@
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
                                         <div class="col-12 py-4"></div>
-                                        <div class="col-12"><img class="w-100" :src="aws" /></div>
-                                        <div class="col-12"><img class="w-100" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-100" :src="node" /></div>
+                                        <div class="col-12"><img class="w-60" :src="aws" /></div>
+                                        <div class="col-12"><img class="w-60" :src="docker" /></div>
+                                        <div class="col-12"><img class="w-60" :src="node" /></div>
                                     </div>
                                 </marquee>
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
-                                        <div class="col-12"><img class="w-100" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-100" :src="node" /></div>
-                                        <div class="col-12"><img class="w-100" :src="java" /></div>
-                                    </div>
-                                </marquee>
-                                <marquee direction="up" height="350px" behavior="alternate">
-                                    <div class="row g-4">
-                                        <div class="col-12 py-4"></div>
-                                        <div class="col-12"><img class="w-100" :src="react" /></div>
-                                        <div class="col-12"><img class="w-100" :src="java" /></div>
-                                        <div class="col-12"><img class="w-100" :src="jankins" /></div>
-                                    </div>
-                                </marquee>
-                                <marquee direction="up" height="350px" behavior="alternate">
-                                    <div class="row g-4">
-                                        <div class="col-12"><img class="w-100" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-100" :src="node" /></div>
-                                        <div class="col-12"><img class="w-100" :src="aws" /></div>
+                                        <div class="col-12"><img class="w-60" :src="jankins" /></div>
+                                        <div class="col-12"><img class="w-60" :src="node" /></div>
+                                        <div class="col-12"><img class="w-60" :src="java" /></div>
                                     </div>
                                 </marquee>
                                 <marquee direction="up" height="350px" behavior="alternate">
                                     <div class="row g-4">
                                         <div class="col-12 py-4"></div>
-                                        <div class="col-12"><img class="w-100" :src="java" /></div>
-                                        <div class="col-12"><img class="w-100" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-100" :src="react" /></div>
+                                        <div class="col-12"><img class="w-60" :src="react" /></div>
+                                        <div class="col-12"><img class="w-60" :src="java" /></div>
+                                        <div class="col-12"><img class="w-60" :src="jankins" /></div>
+                                    </div>
+                                </marquee>
+                                <marquee direction="up" height="350px" behavior="alternate">
+                                    <div class="row g-4">
+                                        <div class="col-12"><img class="w-60" :src="jankins" /></div>
+                                        <div class="col-12"><img class="w-60" :src="node" /></div>
+                                        <div class="col-12"><img class="w-60" :src="aws" /></div>
+                                    </div>
+                                </marquee>
+                                <marquee direction="up" height="350px" behavior="alternate">
+                                    <div class="row g-4">
+                                        <div class="col-12 py-4"></div>
+                                        <div class="col-12"><img class="w-60" :src="java" /></div>
+                                        <div class="col-12"><img class="w-60" :src="docker" /></div>
+                                        <div class="col-12"><img class="w-60" :src="react" /></div>
                                     </div>
                                 </marquee>
                             </div>
@@ -496,12 +494,11 @@ export default {
         padding: 20px 0px;
         /* max-width: 80%; */
         font-weight: 600;
-        font-style: medium;
-        font-size: 42px;
+        font-size: 40px;
         line-height: 55px;
         letter-spacing: -3%;
         color: #FFFFFF;
-        font-family: 'Roboto', sans-serif;
+        font-family: poppins, sans-serif;
     }
     .nav-btn-primary {
         background-color: #00D7D7;
@@ -509,6 +506,7 @@ export default {
         font-weight: 600;
         padding: 6px 18px;
         font-size: 18px;
+        font-family: poppins, sans-serif;
     }
     .nav-btn-secondary {
         background-color: #FFC107;
@@ -517,6 +515,7 @@ export default {
         padding: 6px 6px 4px 18px;
         /* border-radius: 20px; */
         font-size: 18px;
+        font-family: poppins, sans-serif;
         img {
             max-height: 30px
         }
@@ -665,7 +664,7 @@ export default {
         .value {
             font-size: 2.5rem;
             color: #fff;
-            font-weight: 800;
+            font-weight: 600;
             line-height: 100%;
             padding-top: 20px;
             font-family: poppins, sans-serif;
@@ -679,7 +678,7 @@ export default {
     .student-module {
         background: linear-gradient(270deg, #2528CB -36.06%, #121465 101.69%);
         .title {
-            /* font-weight: 800; */
+            font-weight: 600;
             font-size: 2rem;
             letter-spacing: -4%;
             color: #fff;
@@ -709,7 +708,7 @@ export default {
 
 /* Corporate Placements */
     .corporate-title {
-        /* font-weight: 800; */
+        font-weight: 600;
         font-size: 2.5rem;
         letter-spacing: -4%;
         color: #141534;
@@ -746,7 +745,7 @@ export default {
             font-size: 9px
         }
          .header-title {
-            font-size: 24px!important;
+            font-size: 21px!important;
             line-height: 28px!important;
             letter-spacing: -3%; 
          }
@@ -758,6 +757,8 @@ export default {
             padding: 6px 12px;
             font-size: 14px;
         }
+
+        
         .nav-btn-secondary {
             background-color: #FFC107;
             color: #fff;

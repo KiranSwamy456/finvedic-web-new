@@ -133,10 +133,12 @@ export default {
 
 <style scoped>
     .title {
-        font-weight: 800;
+        font-weight:700;
         font-size: 1.8rem;
         letter-spacing: -4%;
         color: #141534;
+        font-family: poppins, sans-serif;
+
     }
     .description {
         font-weight: 600;

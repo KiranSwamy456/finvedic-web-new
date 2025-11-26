@@ -89,6 +89,49 @@ export default {
         text-decoration: underline;
     }
     @media only screen and (max-width: 767px) { 
+
+         .navbar-collapse .gap-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Make each bootstrap btn behave like a full-width pill on mobile */
+  .navbar-collapse .gap-2 .btn {
+    display: block !important;       /* override inline-block */
+    width: 86% !important;           /* or 100% if you want full width */
+    max-width: 320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 18px !important;   /* preserve icon padding */
+    padding-right: 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Remove the bootstrap utility margins that were added in template */
+  .navbar-collapse .gap-2 .ms-3,
+  .navbar-collapse .gap-2 .me-2 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* If primary button has an img, make its spacing consistent */
+  .navbar-collapse .gap-2 .nav-btn-primary img {
+    max-height: 22px !important;
+    margin-left: 8px !important;
+    vertical-align: middle;
+  }
+
+  /* Fix text size so it fits better on smaller screens */
+  .navbar-collapse .gap-2 .nav-btn-primary,
+  .navbar-collapse .gap-2 .nav-btn-secondary {
+    font-size: 14px !important;
+  }
         .whiteLogo {
             display: block;
         }

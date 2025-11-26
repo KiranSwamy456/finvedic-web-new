@@ -34,7 +34,7 @@
                         <div class="col-12 col-lg-5 text-lg-start text-sm-center pt-4 pt-md-2">
                             <p class="carousal-title">Hackathon <i style="color: #0F268E">Online</i></p>
                             <p class="carousal-description">A coding hackathon where students solve real-world challenges and showcase innovation.</p>
-                            <a class="carousal-link rounded-pill">View Curriculum <img :src="s1000016186"/></a>
+                            <a class="carousal-link rounded-pill">Learn More <img :src="s1000016186"/></a>
                         </div>
                     </div>
                     <!-- -->

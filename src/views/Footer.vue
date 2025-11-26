@@ -118,14 +118,16 @@ export default {
 
     .title {
         font-weight: 600;
-        font-size: 1.8rem;
+        font-size: 2rem;
         letter-spacing: -4%;
         color: #FFFFFF;
+        font-family: poppins, sans-serif;
     }
     .description {
-        font-size: 1.1rem;
+        font-size:1rem;
         color: #E0E0E0;
         font-weight: 500;
+        font-family: poppins, sans-serif;
     }
      .nav-btn-primary {
         background-color: #00D7D7;
@@ -133,6 +135,7 @@ export default {
         font-weight: 600;
         padding: 6px 18px;
         font-size: 1rem;
+        font-family: poppins, sans-serif;
     }
     .nav-btn-secondary {
         background-color: #FFC107;
@@ -140,13 +143,15 @@ export default {
         font-weight: 600;
         padding: 6px 18px;
         font-size: 1rem;
+        font-family: poppins, sans-serif;
     }
     .footer-header {
         color: #2563EB;
         font-size: 1.1rem;
-        font-weight: 700;
+        font-weight: 800;
         letter-spacing: 1px;
         text-transform: capitalize;
+        font-family: poppins, sans-serif;
     }
     .list-group-item, .footer-text {
         padding-left: 0px;
@@ -154,6 +159,7 @@ export default {
         color: #52525B;
         font-size: 0.9em;
         font-weight: 600;
+        font-family: poppins, sans-serif;
     }
 
     /* Extra small devices (phones, 600px and down) */
@@ -170,11 +176,13 @@ export default {
             font-size: 12px;
             letter-spacing: -4%;
             color: #FFFFFF;
+            font-family: poppins, sans-serif;
         }
         .description {
             font-size: 8px;
             color: #E0E0E0;
             font-weight: 500;
+            font-family: poppins, sans-serif;
         }
         .nav-btn-primary {
             background-color: #00D7D7;
@@ -182,6 +190,7 @@ export default {
             font-weight: 800;
             padding: 2px 4px;
             font-size: 8px;
+            font-family: poppins, sans-serif;
         }
         .nav-btn-secondary {
             background-color: #FFC107;
@@ -189,6 +198,7 @@ export default {
             font-weight: 800;
             padding: 2px 4px;
             font-size: 8px;
+            font-family: poppins, sans-serif;
         }
     }
 </style>

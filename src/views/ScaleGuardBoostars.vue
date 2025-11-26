@@ -123,15 +123,17 @@ export default {
         text-align: center;
     }
     .title {
-        font-weight: 800;
-        font-size: 1.8rem;
+        font-weight: 600;
+        font-size: 2.5rem;
         letter-spacing: -4%;
         color: #fff;
+        font-family: poppins, sans-serif;
     }
     .description {
         font-size: 1em;
         color: #E0E0E0;
         font-weight: 600;
+         font-family: poppins, sans-serif;
     }
 
     .carousel {
@@ -172,7 +174,7 @@ export default {
         opacity: 1;
     }
     .carousal-title {
-        font-weight: 600;
+        font-weight: 700;
         color: #141534;
         font-size: 1.6em;
     }
@@ -209,6 +211,7 @@ export default {
         }  
         .description, .carousal-description {
             font-size: 14px;
+             font-family: poppins, sans-serif;
         } 
         .carousal-link {
             img {

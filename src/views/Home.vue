@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="header-title mx-auto">
-                    AI Powered Platform for Building <span style="color: #FFCA00">Day-1-Onboarding Talent</span>  Accelerated on 
+                    AI Powered Platform for Building <span style="color: #FFCA00; font-weight: 800;">Day-1-Onboarding Talent</span>  Accelerated on 
                     GCC Devlabs for Career Readiness Specialized DeepTech and FinTech.
                 </div>
 
@@ -266,7 +266,7 @@ import Footer from "./Footer.vue"
 // images 
 import iconA from "../assets/icons/A.svg"
 import iconB from "../assets/icons/B.svg"
-import iconC from "../assets/icons/C.svg"
+import iconC from "../assets/icons/AWS.png"
 import iconD from "../assets/icons/D.svg"
 import iconE from "../assets/icons/E.svg"
 import iconF from "../assets/icons/F.svg"
@@ -280,6 +280,8 @@ import s1000016649 from "../assets/1000016649.svg"
 import s1000016895 from "../assets/1000016895.svg"
 import s1000016770 from "../assets/1000016770.svg"
 import s1000016791 from "../assets/1000016791.svg"
+
+
 
 import week1 from "../assets/week1.svg"
 import week2 from "../assets/week2.svg"
@@ -323,6 +325,8 @@ export default {
     },
     data() {
         return {
+              s1000016895: s1000016895,
+            s1000016770: s1000016770,
             keyActivitiesLg: keyActivitiesLg,
             playIcon: playIcon,
             systemImage: systemImage,
@@ -496,7 +500,8 @@ export default {
         font-size: 42px;
         line-height: 55px;
         letter-spacing: -3%;
-        color: #FFFFFF
+        color: #FFFFFF;
+        font-family: 'Roboto', sans-serif;
     }
     .nav-btn-primary {
         background-color: #00D7D7;
@@ -519,34 +524,40 @@ export default {
 
     .accelerated {
         .title {
-            font-weight: 600;
-            font-size: 1.8rem;
+            font-weight: 600; 
+            font-size:2rem;
             letter-spacing: -4%;
             color: #141534;
+            font-family: poppins, sans-serif;
         }
         .italic-text {
             color:#0F268E;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
         }
         .sub-title {
             color: #14CEC3;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 600;
         }
         .description {
             color: #45464E;
+            font-family: poppins, sans-serif;
+            padding-top: 2%;
             
         }
 
         .card-number {
+            padding-top: 2%;
             color: #2528CB;
-            font-size: 1.2rem;
+            font-size: 1.2rem !important;
             font-weight: 700;
+            /* font-family: poppins, sans-serif; */
         }
         .card-label {
             font-size: 1rem;
             color: #14CEC3;
             font-weight: 600;
+            /* font-family: poppins, sans-serif; */
         }
     }
     
@@ -554,12 +565,15 @@ export default {
         background: linear-gradient(270deg, #2528CB -23%, #0F268E 56.1%);
         color: #fff;
         .title{
-            font-size: 1.8rem;
-            font-weight: 900;
+            margin-top: 15%;
+            font-size: 2.2rem;
+            font-weight: 800; 
+            font-family: poppins, sans-serif;
         }
         .description {
             color: #D9D9D9;
             font-size: 1rem;
+             font-family: poppins, sans-serif;
         }
         .button {
             background: #00D7D7;
@@ -573,20 +587,23 @@ export default {
     .Glimpse {
         text-align: center;
         .title {
-            font-size: 1.8rem;
+            font-family: poppins, sans-serif;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #141534;
         }
         .sub-title {
             color: #0F268E;
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             font-weight: 500;
-            font-style: italic
+            font-style: italic;
+            font-family: poppins, sans-serif;
         }
         .description {
             padding-top: 12px;
             color: #45464E;
             font-size: 18px;
+             font-family: poppins, sans-serif;
             
         }
     }
@@ -616,10 +633,12 @@ export default {
                 color: #2528CB;
                 font-size: 1.2rem;
                 font-weight: 700;
+               font-family: poppins, sans-serif;
             }
             .description {
                 font-size: 1em;
                 color: #45464E;
+                 font-family: poppins, sans-serif;
             }
             
         }
@@ -628,10 +647,11 @@ export default {
     .ScaleGrad {
         background: linear-gradient(270deg, #2528CB -36.06%, #121465 101.69%);
         .title {
-            font-weight: 800;
+            /* font-weight: 800; */
             font-size: 1.8rem;
             letter-spacing: -4%;
             color: #fff;
+            font-family: poppins, sans-serif;
         }
         .sub-title {
             font-size: 1rem;
@@ -645,9 +665,10 @@ export default {
         .value {
             font-size: 2.5rem;
             color: #fff;
-            font-weight: 900;
+            font-weight: 800;
             line-height: 100%;
             padding-top: 20px;
+            font-family: poppins, sans-serif;
         }
         .label {
             font-size: 0.8rem;
@@ -658,15 +679,17 @@ export default {
     .student-module {
         background: linear-gradient(270deg, #2528CB -36.06%, #121465 101.69%);
         .title {
-            font-weight: 800;
-            font-size: 1.8rem;
+            /* font-weight: 800; */
+            font-size: 2rem;
             letter-spacing: -4%;
             color: #fff;
+            font-family: poppins, sans-serif;
         }
         .sub-title {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #14CEC3;
             font-style: italic;
+            font-family: poppins, sans-serif;
         }
         .text {
             font-size: 1rem;
@@ -686,10 +709,11 @@ export default {
 
 /* Corporate Placements */
     .corporate-title {
-        font-weight: 800;
-        font-size: 1.8rem;
+        /* font-weight: 800; */
+        font-size: 2.5rem;
         letter-spacing: -4%;
         color: #141534;
+        font-family: poppins, sans-serif;
     }
 
     .custom-grid {
@@ -748,17 +772,21 @@ export default {
         .accelerated {
             .title {
                 font-size: 28px;
+                 font-family: poppins, sans-serif;
             }
             .italic-text {
                 font-size: 24px;
+                 font-family: poppins, sans-serif;
             }
             .sub-title {
                 font-size: 20px;
                 font-weight: 600;
+                 font-family: poppins, sans-serif;
             }
             .description {
                 color: #45464E;
                 font-size: 14px;
+                 font-family: poppins, sans-serif;
                 
             }
 
@@ -780,10 +808,12 @@ export default {
             .title{
                 font-size: 24px;
                 font-weight: 900;
+                font-family: poppins, sans-serif;
             }
             .description {
                 color: #D9D9D9;
                 font-size: 16px;
+                 font-family: poppins, sans-serif;
             }
             .button {
                 background: #00D7D7;
@@ -801,15 +831,18 @@ export default {
                 font-size: 1.2rem;
                 letter-spacing: -4%;
                 color: #fff;
+                font-family: poppins, sans-serif;
             }
             .sub-title {
                 font-size: 1rem;
                 color: #14CEC3;
                 font-style: italic;
+                 font-family: poppins, sans-serif;
             }
             .text {
                 font-size: 14px;
                 color: #EAEAEA;
+                 font-family: poppins, sans-serif;
             }
             .image {
                 width: 50%;

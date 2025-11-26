@@ -37,7 +37,7 @@
                 </div>
             </swiper-slide>
         </swiper>
-         <swiper
+         <!-- <swiper
             :slidesPerView="'auto'"
             :centeredSlides="false"
             :spaceBetween="30"
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </swiper-slide>
-        </swiper>
+        </swiper> -->
 
 
     </div>
@@ -71,56 +71,66 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/free-mode";
-import StarRating from 'vue-star-rating'
+import StarRating from "vue-star-rating";
+
+// ✅ Import images INSIDE script
+import glance2 from "../assets/glance2.svg";
+import glance3 from "../assets/glance3.svg";
+import glance4 from "../assets/glance4.svg";
+import glance5 from "../assets/glance5.svg";
+
+
 export default {
-    components: {
-        Swiper, 
-        SwiperSlide,
-        StarRating
-    },
-    data() {
-        return {
-            testimonials: [
-                {
-                    text: "Case studies, AI assignments, and group work were engaging. The mock interviews helped clarify my career path.",
-                    rating: 5,
-                    name: "Harsha M",
-                    course: "B. Tech CSE",
-                    photo: "/path/to/photo1.jpg"
-                },
-                {
-                    text: "Real-world projects and group discussions improved my confidence.",
-                    rating: 4,
-                    name: "Nikhil",
-                    course: "B. Tech CSE",
-                    photo: "/path/to/photo2.jpg"
-                },
-                {
-                    text: "Expert lectures, hands-on projects, and interactive sessions made learning enjoyable.",
-                    rating: 4,
-                    name: "Teja",
-                    course: "B. Tech CSE",
-                    photo: "/path/to/photo3.jpg"
-                },
-                {
-                    text: "Networking opportunities and 24/7 AI assistance were very helpful.",
-                    rating: 5,
-                    name: "Tarun",
-                    course: "B. Tech CSE",
-                    photo: "/path/to/photo4.jpg"
-                },
-                {
-                    text: "Loved the structured mentorship and career-oriented training.",
-                    rating: 4,
-                    name: "Harshitha",
-                    course: "M. Tech CSE",
-                    photo: "/path/to/photo5.jpg"
-                }
-            ]
-        }
-    }
-}
+  components: {
+    Swiper,
+    SwiperSlide,
+    StarRating,
+  },
+
+  data() {
+    return {
+      testimonials: [
+        {
+          text: "Case studies, AI assignments, and group work were engaging. The mock interviews helped clarify my career path.",
+          rating: 5,
+          name: "Harsha M",
+          course: "B. Tech CSE",
+          photo: glance3,
+        },
+        {
+          text: "Real-world projects and group discussions improved my confidence.",
+          rating: 4,
+          name: "Yash",
+          course: "B. Tech CSE",
+          photo: glance2,
+        },
+        {
+          text: "Expert lectures, hands-on projects, and interactive sessions made learning enjoyable.",
+          rating: 4,
+          name: "Durga Prasad",
+          course: "B. Tech CSE",
+          photo: glance4,
+        },
+        {
+          text: "Networking opportunities and 24/7 AI assistance were very helpful.",
+          rating: 5,
+          name: "Sandeep",
+          course: "B. Tech CSE",
+          photo: glance5,
+        },
+        {
+          text: "Loved the structured mentorship and career-oriented training.",
+          rating: 4,
+          name: "Harsha",
+          course: "M. Tech CSE",
+          photo: glance3,
+        },
+      ],
+    };
+  },
+};
 </script>
+
 <style scoped>
     .title {
         font-weight: 800;

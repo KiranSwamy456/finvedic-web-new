@@ -26,7 +26,7 @@
                         year: '1',
                         extension: 'st',
                         hours: '120 Hours',
-                        description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
+                        description:"Advanced full-stack development with hands-on projects.",
                         keys: ['Full-stack Apps', 'Advanced level'],
                         link: '/curriculum/1',
                         enableRedirect: true

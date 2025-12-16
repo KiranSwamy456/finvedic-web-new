@@ -10,20 +10,27 @@
 
                 <div class="header-title mx-auto">
                     AI Powered Platform for Building <span style="color: #FFCA00; font-weight: 600;">Day-1-Onboarding Talent</span>  Accelerated on 
-                    GCC Devlabs for Career Readiness Specialized DeepTech and FinTech.
-                </div>
+                    GCC Devlabs for Career Readiness Specialized in DeepTech and FinTech.
+                          </div>
+          
+             <div class="header-icons">
+            <img
+              v-for="icon in headerIons"
+              :key="icon"
+              :src="icon"
+              class="header-icon"
+            />
+          </div>
 
-                <div class="d-flex justify-content-center">
-                    <img
-                        v-for="icon in headerIons"
-                        :src="icon"
-                        style="aspect-ratio: 1/1; max-width: 35px;"
-                        class="mx-1"
-                    />
-                </div>
+
+
                 <div class="d-flex justify-content-center py-5">
-                    <a href="#" class="btn nav-btn-primary rounded-pill">Start Your Journey</a>
-                    <router-link class="btn nav-btn-secondary rounded-pill ms-3 me-2" :to="'/demo'">
+                  <a href="#journey"
+                class="btn nav-btn-primary rounded-pill"
+                @click.prevent="scrollToJourney">
+                Start Your Journey
+                </a>
+              <router-link class="btn nav-btn-secondary rounded-pill ms-3 me-2" :to="'/demo'">
                         Watch Demo
                         <img :src="playIcon" class="ms-3"/>
                     </router-link>
@@ -40,7 +47,7 @@
                 <div class="col-12 col-lg-6 d-none d-md-block">
                     <img :src="s1000016649" class="w-100"/>
                 </div>
-                <div class="col-12 col-lg-6 accelerated">
+                <div class="col-12 col-lg-6 accelerated" id="home/about">
                     <div class="title">Accelerated Careers on GCC Dev Labs</div>
                     <p class="italic-text"><i>Powered by ScaleGrad</i></p>
                     <div class="sub-title">What is ScaleGrad?</div>
@@ -67,16 +74,31 @@
             </div>
         </div>
 
-        <div class="container py-5">
+        <div class="container">
             <div class="card scaleGuardMission rounded-4">   
                 <div class="row">
-                    <div class="col-12 col-lg-5  p-4 ps-lg-5 pt-lg-5">
-                        <div class="title">FROM FIRST YEAR<br></br> TO FINAL PLACEMENT</div>
-                        <div class="description">—ONE PLATFROM TO LEARN, BUILD, AND<br></br> GET HIRED ALL IN CAMPUS WALLS.</div>
+                    <div class="col-12 col-lg-5  p-4 ps-lg-5 pt-lg-2">
+                        <div class="title">FROM FIRST YEAR 
+TO FINAL PLACEMENT</div>
+                        <div class="description">—ONE PLATFROM TO LEARN, BUILD, AND
+GET HIRED ALL IN CAMPUS WALLS.</div>
                         <button class="btn rounded-pill button px-3 my-lg-5 my-4">ScaleGrad Mission</button>
                     </div>
                     <div class="col-12 col-lg-7  d-lg-block">
-                        <img :src="s1000016895" style="width: 100%"/>
+                             <!-- ✅ Web View Image (Visible only on LG & above) -->
+                            <img 
+                                :src="roundedicon" 
+                                class="img-fluid d-none d-lg-block"
+                                alt="Web Placement Image"
+                            />
+
+                            <!-- ✅ Mobile View Image (Visible only below LG) -->
+                            <img 
+                                src="@/assets/icons/mobileplacement.png"
+                                class="img-fluid d-block d-lg-none"
+                                alt="Mobile Placement Image"
+                            />
+                                
                     </div>
                     
                 </div>
@@ -127,7 +149,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-lg-4">
-                            <div class="title">ScaleGrad’s Prep</div>
+                            <div class="title bold">ScaleGrad’s Prep</div>
                             <div class="sub-title">Industry readiness via DeepTech and FinTech at a Glance</div>
                             <div class="text">Your Yearly Prep includes:</div>
                             <div class="row">
@@ -142,117 +164,147 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 col-lg-8 d-none d-lg-block">
-                            <div class="custom-grid">
-                                <marquee direction="up" height="350px" behavior="alternate">
-                                    <div class="row g-4">
-                                       
-                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
-                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-50" :src="node" /></div>
-                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
-                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-50" :src="node" /></div>
-                                    </div>
-                                </marquee>
-                                <marquee direction="up" height="350px" behavior="alternate">
-                                    <div class="row g-4">
-                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-50" :src="node" /></div>
-                                        <div class="col-12"><img class="w-50" :src="java" /></div>
-                                         <div class="col-12"><img class="w-50" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-50" :src="node" /></div>
-                                        <div class="col-12"><img class="w-50" :src="java" /></div>
-                                    </div>
-                                </marquee>
-                                <marquee direction="up" height="350px" behavior="alternate">
-                                    <div class="row g-4">
-                                        
-                                        <div class="col-12"><img class="w-50" :src="react" /></div>
-                                        <div class="col-12"><img class="w-50" :src="java" /></div>
-                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
-                                         <div class="col-12"><img class="w-50" :src="react" /></div>
-                                        <div class="col-12"><img class="w-50" :src="java" /></div>
-                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
-                                    </div>
-                                </marquee>
-                                <marquee direction="up" height="350px" behavior="alternate">
-                                    <div class="row g-4">
-                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-50" :src="node" /></div>
-                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
-                                        <div class="col-12"><img class="w-50" :src="jankins" /></div>
-                                        <div class="col-12"><img class="w-50" :src="node" /></div>
-                                        <div class="col-12"><img class="w-50" :src="aws" /></div>
-                                    </div>
-                                </marquee>
-                                <marquee direction="up" height="350px" behavior="alternate">
-                                    <div class="row g-4">
-                                       
-                                        <div class="col-12"><img class="w-50" :src="java" /></div>
-                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-50" :src="react" /></div>
-                                        <div class="col-12"><img class="w-50" :src="java" /></div>
-                                        <div class="col-12"><img class="w-50" :src="docker" /></div>
-                                        <div class="col-12"><img class="w-50" :src="react" /></div>
-                                    </div>
-                                </marquee>
-                                
-                            </div>
-                        </div>
-                        <div class="col-12 d-block d-lg-none pt-3">
-                                <div class="w-100" style="overflow-x: hidden">
-                                    <div class="marquee-track">
-                                    <div class="row horizontal-row ">
-                                        <div class="col-4" v-for="item in tools">
-                                            <img class="w-100" :src="item" />
-                                        </div>
-                                    </div>
-                                    <div class="row horizontal-row mt-3">
-                                        <div class="col-4" v-for="item in tools">
-                                            <img class="w-100" :src="item" />
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                
-                        </div>
+             <div class="col-6 col-lg-8 d-none d-lg-block">
+  <div class="custom-grid">
+
+    <!-- COLUMN 1 -->
+    <marquee direction="up" height="350px" scrollamount="4">
+      <div class="row g-4">
+        <div
+          class="col-12"
+          v-for="(tool, i) in [...tools.slice(0,4), ...tools.slice(0,4)]"
+          :key="'c1-'+i"
+        >
+          <img class="w-50" :src="tool" />
+        </div>
+      </div>
+    </marquee>
+
+    <!-- COLUMN 2 -->
+    <marquee direction="down" height="350px" scrollamount="4">
+      <div class="row g-4">
+        <div
+          class="col-12"
+          v-for="(tool, i) in [...tools.slice(4,8), ...tools.slice(4,8)]"
+          :key="'c2-'+i"
+        >
+          <img class="w-50" :src="tool" />
+        </div>
+      </div>
+    </marquee>
+
+    <!-- COLUMN 3 -->
+    <marquee direction="up" height="350px" scrollamount="4">
+      <div class="row g-4">
+        <div
+          class="col-12"
+          v-for="(tool, i) in [...tools.slice(8,12), ...tools.slice(8,12)]"
+          :key="'c3-'+i"
+        >
+          <img class="w-50" :src="tool" />
+        </div>
+      </div>
+    </marquee>
+
+    <!-- COLUMN 4 -->
+    <marquee direction="down" height="350px" scrollamount="4">
+      <div class="row g-4">
+        <div
+          class="col-12"
+          v-for="(tool, i) in [...tools.slice(12,16), ...tools.slice(12,16)]"
+          :key="'c4-'+i"
+        >
+          <img class="w-50" :src="tool" />
+        </div>
+      </div>
+    </marquee>
+
+    <!-- COLUMN 5 -->
+    <marquee direction="up" height="350px" scrollamount="4">
+      <div class="row g-4">
+        <div
+          class="col-12"
+          v-for="(tool, i) in [...tools.slice(16,21), ...tools.slice(16,21)]"
+          :key="'c5-'+i"
+        >
+          <img class="w-50" :src="tool" />
+        </div>
+      </div>
+    </marquee>
+
+  </div>
+</div>
+
+
+                       <div class="col-12 d-block d-lg-none pt-3">
+  <div class="w-100 overflow-hidden">
+
+    <div class="marquee-track">
+
+      <!-- ROW 1 -->
+      <div class="row horizontal-row">
+        <div class="col-4" v-for="(item, i) in tools.slice(0, 10)" :key="'row1-' + i">
+          <img class="w-100" :src="item" />
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="row horizontal-row mt-3">
+        <div class="col-4" v-for="(item, i) in tools.slice(10)" :key="'row2-' + i">
+          <img class="w-100" :src="item" />
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
                     </div>
                 </div>
             </div>
 
-            <div class="card student-module rounded-4 border-0 p-3 my-5">
+          <div class="card student-module rounded-4 border-0 p-3 my-5" id="journey">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <div class="title">Student Journey with</div>
+                            <div class="title" >Student Journey with</div>
                             <p class="sub-title">ScaleGrad Platform</p>
                             <div class="text">The ScaleGrad Platform offers a year-wise progression model that grows with the student—starting from foundational programming to industry specialization and placement readiness.</div>
                         </div>
-                        <div class="col-12 col-lg-6 pt-4 pt-lg-0">
-                            <div class="row align-items-end">
-                                <div v-for="(item ,index) in studentData" class="col-4 text-center" :class="index == 0 ? 'active' : ''">
-                                    <img class="image" :src="item.image"/>
-                                    <div class="label">{{ item.label }}</div>
-                                </div>
-                            </div>
-                        </div>
+                   <div class="col-12 col-lg-6 pt-4 pt-lg-0">
+  <div class="row align-items-end">
+    <div
+      v-for="(item ,index) in studentData"
+      :key="item.label"
+      class="col-4 text-center"
+      :class="{ active: selectedJourney === item.value }"
+      @click="selectJourney(item.value)"
+      style="cursor:pointer"
+    >
+      <img class="image" :src="item.image"/>
+      <div class="label">{{ item.label }}</div>
+    </div>
+  </div>
+</div>
+
                     </div>
                 </div>
             </div>
 
-            <Courses />
+           <Courses :journey="selectedJourney" id="home/courses"/>
+
         </div>
 
         <ScaleGuardBoostars />
 
-        <StudentSuccessStories />
+        <!-- <StudentSuccessStories /> -->
 
         <div class="container py-5">
             <img :src="s1000016811" style="width: 100%;"/>
         </div> 
 
-        <div class="container-fluid py-5" style="background-color: #F3F5F4;">
+        <div class="container-fluid py-5" style="background-color: #F3F5F4;" id="partner">
             <div class="corporate-title text-center mb-5">
                  Corporate <i style="color: #2528CB">Placements</i>
             </div>
@@ -285,13 +337,31 @@ import iconD from "../assets/icons/D.svg"
 import iconE from "../assets/icons/E.svg"
 import iconF from "../assets/icons/F.svg"
 import iconG from "../assets/icons/G.svg"
+import iconH from "../assets/icons/H.svg"
+import iconI from "../assets/icons/I.svg"
+import iconJ from "../assets/icons/J.svg"
+import iconk from "../assets/icons/K.svg"
+import iconL from "../assets/icons/L.svg"
+import iconM from "../assets/icons/M.svg"
+import iconN from "../assets/icons/N.svg"
+import iconO from "../assets/icons/O.svg"
+import iconP from "../assets/icons/P.svg"
+import iconQ from "../assets/icons/Q.svg"
+import iconR from "../assets/icons/R.svg"
+
+
+
+
+
+
 import playIcon from "../assets/buttonIcons/playIcon.svg"
 import headerBackground from "../assets/headerBackground.svg"
 import systemImage from "../assets/systamImage.svg"
 import keyActivitiesLg from "../assets/keyActivitiesLg.svg";
 
 import s1000016649 from "../assets/1000016649.svg"
-import s1000016895 from "../assets/1000016895.svg"
+// import s1000016895 from "../assets/1000016895.svg"
+import roundedicon from "../assets/roundedicon.svg"
 import s1000016770 from "../assets/1000016770.svg"
 import s1000016791 from "../assets/1000016791.svg"
 
@@ -327,7 +397,21 @@ import jankins from "../assets/jankins.svg"
 import node from "../assets/node.svg"
 import swift from "../assets/swift.svg"
 import python from "../assets/python.svg"
+import AI from "../assets/AI.svg"
 import react from "../assets/react.svg"
+import API from "../assets/API.svg"
+import blockchain from "../assets/blockchain.svg"
+import chatbot from "../assets/chatbot.svg"
+import cloudcomputing from "../assets/cloudcomputing.svg"
+import database from "../assets/database.svg"
+import devops from "../assets/devops.svg"
+import DM from "../assets/DM.svg"
+import kafka from "../assets/kafka.svg"
+import kubernets from "../assets/kubernets.svg"
+import mangoDB from "../assets/mangoDB.svg"
+import Reddis from "../assets/Reddis.svg"
+import Robotic from "../assets/Robotic.svg"
+import SQL from "../assets/SQL.svg"
 export default {
     components: {
         Navbar,
@@ -339,7 +423,8 @@ export default {
     },
     data() {
         return {
-              s1000016895: s1000016895,
+            //   s1000016895: s1000016895,
+            roundedicon: roundedicon,
             s1000016770: s1000016770,
             keyActivitiesLg: keyActivitiesLg,
             playIcon: playIcon,
@@ -353,27 +438,76 @@ export default {
             swift: swift,
             python: python,
             react: react,
-            tools: [
-                docker,
-                java,
-                aws,
-                jankins,
-                node,
-                swift,
-                python,
-                react
+            AI: AI,
+            API: API,
+            blockchain: blockchain,
+            chatbot: chatbot,
+            cloudcomputing: cloudcomputing,
+            database: database,
+            devops: devops,
+            DM: DM,
+            kafka: kafka,
+            kubernets: kubernets,
+            mangoDB: mangoDB,
+            Reddis: Reddis,
+            Robotic: Robotic,
+            SQL: SQL,
+         
+
+
+             selectedJourney: "engineering",
+              tools: [
+              docker,
+              java,
+              aws,
+              jankins,
+              node,
+              swift,
+              python,
+              react,
+              kafka,
+              AI,
+              API,
+              blockchain,
+              chatbot,
+              cloudcomputing,
+              database,
+              devops,
+              kubernets,
+              mangoDB,
+              Reddis,
+              Robotic,
+              SQL
             ],
+
+
+
+
             headerIons: [
-                iconA,
+                // iconA,
                 iconB,
                 iconC,
-                iconD,
+                // iconD,
                 iconE,
                 iconF,
                 iconG
+                ,iconH,
+                iconI,
+                iconJ,
+                iconk,
+                iconL,
+                iconM,
+                iconN,
+                iconO,
+                iconP,
+                iconQ,
+                iconR
+
+
             ],
             s1000016649: s1000016649,
-            s1000016895: s1000016895,
+            // s1000016895: s1000016895,
+            roundedicon: roundedicon,
             s1000016770: s1000016770,
             s1000016791: s1000016791,
             s1000016641: s1000016641,
@@ -423,11 +557,12 @@ export default {
                     ]
                 }
             ],
-            studentData: [
-                { image: group1, label: 'Engineering' },
-                { image: group2, label: 'Post Graduation' },
-                { image: group3, label: 'Crash Course' }
-            ],
+         studentData: [
+  { image: group1, label: 'Engineering', value: 'engineering' },
+  { image: group2, label: 'Post Graduation', value: 'pg' },
+  { image: group3, label: 'Crash Course', value: 'crash' }
+],
+
             // courses: [
             //     {
             //         image: Year1st,
@@ -481,10 +616,26 @@ export default {
             ],
 
         }
+    },
+    methods: {
+  selectJourney(type) {
+    this.selectedJourney = type;
+  },
+  scrollToJourney() {
+    const el = document.getElementById("journey");
+    if (el) {
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     }
+  }
+}
+
 }
 </script>
 <style scoped>
+
     .header-bg {
         background: url("../assets/headerBackground.svg");
         background-size: cover;
@@ -539,7 +690,7 @@ export default {
 
     .accelerated {
         .title {
-            font-weight: 600; 
+            font-weight: 800; 
             font-size:2rem;
             letter-spacing: -4%;
             color: #141534;
@@ -558,13 +709,14 @@ export default {
             color: #45464E;
             font-family: poppins, sans-serif;
             padding-top: 2%;
+            font-weight: 500;
             
         }
 
-        .card-number {
+      .card-number {
             padding-top: 2%;
             color: #2528CB;
-            font-size: 1.2rem !important;
+            font-size: 18px !important;
             font-weight: 700;
             /* font-family: poppins, sans-serif; */
         }
@@ -581,19 +733,19 @@ export default {
         color: #fff;
         .title{
             margin-top: 15%;
-            font-size: 2.2rem;
+            font-size:2.2rem;
             font-weight: 800; 
             font-family: poppins, sans-serif;
         }
         .description {
             color: #D9D9D9;
-            font-size: 1rem;
+            font-size: 1.2rem;
              font-family: poppins, sans-serif;
         }
         .button {
             background: #00D7D7;
             color: #FFFFFF;
-            font-weight: 800;
+            font-weight: 700;
             font-size: 1.6rem;
             margin-left: -80px;
         }
@@ -604,8 +756,9 @@ export default {
         .title {
             font-family: poppins, sans-serif;
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 600;
             color: #141534;
+            
         }
         .sub-title {
             color: #0F268E;
@@ -663,10 +816,11 @@ export default {
         background: linear-gradient(270deg, #2528CB -36.06%, #121465 101.69%);
         .title {
             /* font-weight: 800; */
-            font-size: 1.8rem;
+            font-size: 2rem;
             letter-spacing: -4%;
             color: #fff;
             font-family: poppins, sans-serif;
+            font-weight: 600;
         }
         .sub-title {
             font-size: 1rem;
@@ -707,7 +861,7 @@ export default {
             font-family: poppins, sans-serif;
         }
         .text {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #EAEAEA;
         }
         .image {
@@ -716,11 +870,15 @@ export default {
         }
         .label {
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 500;
             padding-top: 6px;
             color: #fff;    
         }
     }
+    .w-50{
+  width: 73% !important;
+}
+
 
 /* Corporate Placements */
     .corporate-title {
@@ -736,20 +894,76 @@ export default {
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
     }
+
+
     .grid-item {
         background: #FFFFFF;
-        padding: 20px;
+        padding: 30px;
         border-radius: 12px;
         text-align: center;
         img {
-            max-width: 90%;
-            min-width: 40%;
-            max-height: 50px;
+            max-width: 80%;
+            /* min-width: 100%; */
+            /* max-height: 100px; */
         }
     }
+ .student-module .active {
+  background: linear-gradient(135deg, #2528CB, #3f43ff);
+  border-radius: 16px;        /* Square with smooth corners */
+  padding: 12px 6px;
+  box-shadow: 0 8px 20px rgba(37, 40, 203, 0.5);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  cursor: default !important;
+  pointer-events: none;      /* Prevent click on active */
+}
+
+.student-module .active .label {
+  color: #ffffff;
+}
+
+.student-module .active img {
+  filter: brightness(1.15);
+}
+
+.header-icons {
+
+  display: flex;
+  flex-wrap: wrap;          
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+
+
+   }
+
+.header-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+
+}
+
+.title{
+    font-family: poppins, sans-serif;
+    font-weight: 600;
+}
+
 
 
     @media only screen and (max-width: 767px) {
+
+       
+         .header-icons {
+           padding: 0 12px;       
+         }
+       
+         .header-icon {
+           width: 28px;
+           height: 28px;
+         }
+
+
          .header-bg { 
             padding-bottom: 20px; 
         }
@@ -758,8 +972,10 @@ export default {
             z-index: 2!important
         }
         .header-box-content { 
-            font-size: 9px
+            font-size: 9px;
+            margin-top: -5px !important;
         }
+        
          .header-title {
             font-size: 21px!important;
             line-height: 28px!important;
@@ -808,10 +1024,12 @@ export default {
             }
 
             .card-number {
-                color: #2528CB;
-                font-size: 1.2rem;
-                font-weight: 700;
-            }
+            padding-top: 2%;
+            color: #2528CB;
+            font-size: 18px !important;
+            font-weight: 700;
+            /* font-family: poppins, sans-serif; */
+        }
             .card-label {
                 font-size: 14px;
                 color: #14CEC3;
@@ -844,20 +1062,20 @@ export default {
         .student-module {
             background: #121465;
             .title {
-                font-weight: 800;
-                font-size: 1.2rem;
+                font-weight: 600;
+                font-size: 1.7rem;
                 letter-spacing: -4%;
                 color: #fff;
                 font-family: poppins, sans-serif;
             }
             .sub-title {
-                font-size: 1rem;
+                font-size: 1.4rem;
                 color: #14CEC3;
                 font-style: italic;
                  font-family: poppins, sans-serif;
             }
             .text {
-                font-size: 14px;
+                font-size: 18px;
                 color: #EAEAEA;
                  font-family: poppins, sans-serif;
             }
@@ -889,6 +1107,13 @@ export default {
                 min-width: 40%;
                 max-height: 30px;
             }
+        }
+        .card-number {
+            padding-top: 2%;
+            color: #2528CB;
+            font-size: 18px !important;
+            font-weight: 500 !important;
+            /* font-family: poppins, sans-serif; */
         }
 
     }

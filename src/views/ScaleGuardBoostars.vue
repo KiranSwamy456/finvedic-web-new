@@ -12,108 +12,214 @@
         
        
         <div class="container py-4 py-md-5">
-            <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="currentSlide">
-                <Slide v-for="image in images" :key="image.id">
-                    <template #default="{ currentIndex, isActive }">
-                        <div
-                            :class="['thumbnail', { 'is-active': isActive }]"
-                            @click="slideTo(currentIndex)"
-                        >
-                            <img :src="image.navigator" alt="Thumbnail Image" class="thumbnail-image" />
-                        </div>
-                    </template>
-                </Slide>
-            </Carousel>
+           <Carousel
+  id="thumbnails"
+  v-bind="thumbnailsConfig"
+  v-model="currentSlide"
+>
+  <Slide v-for="(image, index) in images" :key="index">
+    <template #default>
+      <div
+        :class="[
+          'thumbnail',
+          {
+            'is-center': getDistance(index) === 0,
+            'is-near': getDistance(index) === 1,
+            'is-far': getDistance(index) >= 2
+          }
+        ]"
+        @click="slideTo(index)"
+      >
+        <img
+          :src="image.navigator"
+          alt="Thumbnail"
+          class="thumbnail-image"
+        />
+        <p class="thumb-label">{{ image.title }}</p>
+      </div>
+    </template>
+  </Slide>
+</Carousel>
+
             <br>
-            <Carousel id="gallery" v-bind="galleryConfig" v-model="currentSlide">
-                <Slide v-for="image in images" :key="image.id">
-                    <div class="row px-lg-5 px-sm-0">
-                        <div class="col-12 col-lg-7">
-                            <img :src="image.url" alt="Gallery Image" class="gallery-image" />
-                        </div>
-                        <div class="col-12 col-lg-5 text-lg-start text-sm-center pt-4 pt-md-2">
-                            <p class="carousal-title">Hackathon <i style="color: #0F268E">Online</i></p>
-                            <p class="carousal-description">A coding hackathon where students solve real-world challenges and showcase innovation.</p>
-                            <a class="carousal-link rounded-pill">Learn More <img :src="s1000016186"/></a>
-                        </div>
-                    </div>
-                    <!-- -->
-                </Slide>
-                <template #addons>
-                    <Navigation />
-                </template>
-            </Carousel>
+       <Carousel id="gallery" v-bind="galleryConfig" v-model="currentSlide">
+  <Slide v-for="(image, index) in images" :key="index">
+    <div class="row px-lg-5 px-sm-0">
+      <div class="col-12 col-lg-7">
+        <img :src="image.url" alt="Gallery Image" class="gallery-image" />
+      </div>
+
+      <div class="col-12 col-lg-5 text-lg-start text-sm-center pt-4 pt-md-2">
+        <p class="carousal-title">
+          {{ image.title }} <i :style="{ color: image.highlightColor }">{{ image.highlight }}</i>
+        </p>
+
+        <p class="carousal-description">
+          {{ image.description }}
+        </p>
+
+        <a class="carousal-link rounded-pill" href="#home/courses" >
+          Learn More <img :src="s1000016186" />
+        </a>
+      </div>
+    </div>
+  </Slide>
+
+  <template #addons>
+    <Navigation />
+  </template>
+</Carousel>
+
         </div>
     </div>
 </template>
 <script>
 import 'vue3-carousel/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-// import bootcamps from "../assets/ScalGuardBoostars/bootcamps.svg";
-import bootcamps  from '../assets/ScalGuardBoostars/bootcamps.svg';
- import bootcampsCard  from '../assets/ScalGuardBoostars/bootcampsCard.svg';
- import GroupDiscussion  from '../assets/ScalGuardBoostars/GroupDiscussion.svg';
- import groupDiscussionCard  from '../assets/ScalGuardBoostars/groupDiscussionsCard.svg';
- import hackathons  from '../assets/ScalGuardBoostars/hackathons.svg';
- import hackathuonCard  from '../assets/ScalGuardBoostars/hackathuonCard.svg';
- import masterClass  from '../assets/ScalGuardBoostars/masterClass.svg';
- import MasterClassCard  from '../assets/ScalGuardBoostars/MasterClassCard.svg';
- import seminarCardCard  from '../assets/ScalGuardBoostars/seminarCard.svg';
- import seminars  from '../assets/ScalGuardBoostars/seminars.svg';
- import s1000016186 from "../assets/1000016186.svg"
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+
+import bootcamps from '../assets/ScalGuardBoostars/bootcamps.svg'
+import bootcampsCard from '../assets/ScalGuardBoostars/bootcampsCard.svg'
+import GroupDiscussion from '../assets/ScalGuardBoostars/GroupDiscussion.svg'
+import groupDiscussionCard from '../assets/ScalGuardBoostars/groupDiscussionsCard.svg'
+import hackathons from '../assets/ScalGuardBoostars/hackathons.svg'
+import hackathuonCard from '../assets/ScalGuardBoostars/hackathuonCard.svg'
+import masterClass from '../assets/ScalGuardBoostars/masterClass.svg'
+import MasterClassCard from '../assets/ScalGuardBoostars/MasterClassCard.svg'
+import seminarCardCard from '../assets/ScalGuardBoostars/seminarCard.svg'
+import seminars from '../assets/ScalGuardBoostars/seminars.svg'
+import s1000016186 from "../assets/1000016186.svg"
 
 export default {
-    components: {
-        Carousel,
-        Slide,
-        Pagination,
-        Navigation
-    },
-    data() {
-        return {
-            s1000016186: s1000016186,
-            currentSlide: 0,
-            galleryConfig: {
-                itemsToShow: 1,
-                wrapAround: true,
-                slideEffect: 'fade',
-                mouseDrag: false,
-                touchDrag: false,
-                height: 320,
-            },
-            thumbnailsConfig: {
-                itemsToShow: 5,
-                wrapAround: true,
-                touchDrag: false,
-                gap: 10,
-            },
-            images: [
-                {
-                    navigator: bootcamps,
-                    url: bootcampsCard
-                },
-                {
-                    navigator: GroupDiscussion,
-                    url: groupDiscussionCard
-                },
-                {
-                    navigator: hackathons,
-                    url: hackathuonCard
-                },
-                {
-                    navigator: masterClass,
-                    url: MasterClassCard
-                },
-                {
-                    navigator: seminars,
-                    url: seminarCardCard
-                }
-            ]
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation
+  },
+
+  data() {
+    return {
+      s1000016186: s1000016186,
+      currentSlide: 0,
+
+      galleryConfig: {
+        itemsToShow: 1,
+        wrapAround: true,
+        slideEffect: 'fade',
+        mouseDrag: false,
+        touchDrag: false,
+        height: 320
+      },
+
+      thumbnailsConfig: {
+        itemsToShow: 5,
+        wrapAround: true,
+        touchDrag: false,
+        gap: 10
+      },
+
+      images: [
+        {
+          navigator: bootcamps,
+          url: bootcampsCard,
+          title: "Bootcamp",
+          highlight: "Training",
+          highlightColor: "#0F268E",
+          description: "An intensive hands-on training program designed to build strong technical skills in a short time."
+        },
+        {
+          navigator: GroupDiscussion,
+          url: groupDiscussionCard,
+          title: "Group",
+          highlight: "Discussion",
+          highlightColor: "#0F268E",
+          description: "Interactive sessions that improve communication, leadership, and collaborative problem-solving skills."
+        },
+        {
+          navigator: hackathons,
+          url: hackathuonCard,
+          title: "Hackathon",
+          highlight: "Online",
+          highlightColor: "#0F268E",
+          description: "A coding hackathon where students solve real-world challenges and showcase innovation."
+        },
+        {
+          navigator: masterClass,
+          url: MasterClassCard,
+          title: "Master",
+          highlight: "Class",
+          highlightColor: "#0F268E",
+          description: "Expert-led sessions focused on deep industry knowledge and advanced technical concepts."
+        },
+        {
+          navigator: seminars,
+          url: seminarCardCard,
+          title: "Seminar",
+          highlight: "Session",
+          highlightColor: "#0F268E",
+          description: "Professional seminars that provide career guidance, industry exposure, and skill awareness."
         }
+      ]
     }
+  },
+
+methods: {
+  slideTo(index) {
+    this.currentSlide = index
+  },
+
+  getDistance(index) {
+    const total = this.images.length
+    const diff = Math.abs(index - this.currentSlide)
+    return Math.min(diff, total - diff)
+  }
+}
+
 }
 </script>
+
+
 <style scoped>
+  .thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  opacity: 0.4;
+  transform: scale(0.6);
+}
+
+/* CENTER – BIG */
+.thumbnail.is-center {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 3;
+}
+
+/* LEFT & RIGHT – MEDIUM */
+.thumbnail.is-near {
+  transform: scale(0.8);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+/* FAR LEFT & FAR RIGHT – SMALL */
+.thumbnail.is-far {
+  transform: scale(0.6);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+
+
+.thumb-label {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e2a6e;
+}
+
     .ScaleGrad-bg {
         background: url("../assets/ScalGuardBoostars/1000016751.svg");
         background-size: cover 100%;

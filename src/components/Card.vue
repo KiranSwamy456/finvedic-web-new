@@ -1,147 +1,215 @@
 <template>
-    <div class="card rounded-4 border-0 rounded-4 h-100">
-        <div class="card-body p-2 h-100">
-            <img :src="item.image" class="image"/>
-            <div class="d-flex justify-content-between align-items-center box">
-                <span class="title">
-                    {{ item.title }}
-                    <span class="year">{{ item.year }}<span class="sup">{{ item.extension }}</span> {{ item.year ? 'Year' : '' }}</span>
-                </span>
-                <span class="badge border">{{ item.hours }}</span>
-            </div>
-            <div class="description">{{ item.description }}</div>
+  <div class="card rounded-4 border-0 h-100">
+    <div class="card-body p-3 h-100">
 
-                <ul class="list-group pt-3">
-                <li class="list-group-item"><img :src="s1000016517" />&nbsp;&nbsp;{{ item.keys[0] }}</li>
-                <li class="list-group-item"><img :src="s1000016518" />&nbsp;&nbsp;{{ item.keys[1] }}</li>
-            </ul>
-            <router-link class="link rounded-pill  mt-3" v-if="item.enableRedirect" :to="item.link">
-                View Curriculum <img :src="s1000016186"/>
-            </router-link> 
-        </div>
+      <!-- Image -->
+      <img :src="item.image" class="image" />
+
+      <!-- Title Box -->
+      <div
+  class="d-flex align-items-center box"
+  style="justify-content: space-between; gap: 8px;"
+>
+
+        <span class="title">
+          {{ item.title }}
+         
+        </span>
+        <span class="badge border" style="color: #FFCA00;">{{ item.hours }}</span>
+      </div>
+
+      <!-- Description -->
+      <div class="description">
+        {{ item.description }}
+      </div>
+
+      <!-- Key Points -->
+      <ul class="list-group">
+        <li
+          v-for="(key, index) in item.keys"
+          :key="index"
+          class="list-group-item" style="color: #4B5563;"
+        >
+          <img :src="s1000016517" />
+          <span class="ms-2">{{ key }}</span>
+        </li>
+      </ul>
+
+      <!-- Button -->
+      <button
+        v-if="item.enableRedirect"
+        class="link rounded-pill mt-3"
+        @click="goToPage"
+      >
+        View Curriculum
+        <img :src="s1000016186" />
+      </button>
+
     </div>
+  </div>
 </template>
+
 <script>
 import s1000016517 from "../assets/1000016517.svg";
-import s1000016518 from "../assets/1000016518.svg";
 import s1000016186 from "../assets/1000016186.svg";
-    export default {
-        props: {
-            item: {
-                default: {},
-                type: Object
-            }
-        },
-        data() {
-            return {
-                s1000016517: s1000016517,
-                s1000016518: s1000016518,
-                s1000016186: s1000016186
-            }
-        }
+
+export default {
+  name: "CourseCard",
+  props: {
+    item: {
+      type: Object,
+      required: true
     }
+  },
+  data() {
+    return {
+      s1000016517,
+      s1000016186
+    };
+  },
+  methods: {
+    goToPage() {
+      this.$router.push(this.item.link);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+};
 </script>
+
 <style scoped>
-        .card {
-            background: #F3F5F4;
-        }
-        .image {
-            width: 100%;
-        }
-        .box {
-            background: #2528CB;
-            padding: 6px;
-            color: #fff;
-            margin: 10px 0px;
-            border-radius: 8px;
-        }
-        .title {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        .year {
-            font-size: 0.8em;
-        }
-        .year .sup {
-            font-size: 0.6em;    /* make it smaller */
-            vertical-align: super;  /* lift it upward */
-            margin-left: 2px;
-        }
-        .badge {
-            color: #FFCA00;
-        }
-        .description {
-            font-size: 1rem;
-            color: #4B5563;
-        }
-        .list-group-item {
-            color: #45464E;
-            font-size: 1em;
-            background: transparent;
-            border: none;
-            padding-left: 0px!important;
-            padding-top: 2px!important;
-            img {
-                width: 14px
-            }
-        }
-        .link {
-            display: inline-flex;
-            align-items: center;
-            img {
-                width: 24px;
-                margin-left: 40px;
-            }
-            background: #14CEC3;
-            color: #fff;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            padding: 6px 6px 6px 16px;
-        }
+/* Card Layout */
+.card {
+  background: #f3f5f4;
+  display: flex;
+  height: 100%;
+}
 
-        @media only screen and (max-width: 767px) {
-            .title {
-                font-size: 1rem;
-                font-weight: 600;
-            }
-            .year {
-                font-size: 0.8em;
-            }
-            .badge {
-                color: #FFCA00;
-            }
-            .description {
-                font-size: 18px;
-                color: #4B5563;
-                line-height: 24px;
-                font-weight: 500;
-            }
-            .list-group-item {
-                color: #45464E;
-                font-size: 1em;
-                background: transparent;
-                border: none;
-                padding-left: 0px!important;
-                padding-top: 2px!important;
-                img {
-                    width: 14px
-                }
-            }
-            .link {
-                display: inline-flex;
-                align-items: center;
-                img {
-                    width: 30px;
-                    margin-left: 40px;
-                }
-                background: #14CEC3;
-                color: #fff;
-                font-weight: 600;
-                font-size: 1rem;
-                text-decoration: none;
-                padding: 6px 6px 6px 16px;
-            }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-        }
+/* Image */
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Blue Box */
+.box {
+  background: #2528cb;
+  padding: 8px 10px;
+  color: #fff;
+  margin: 12px 0;
+  border-radius: 10px;
+}
+
+/* Title */
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  /* line-height: 1.3; */
+
+  /* display: -webkit-box; */
+  /* -webkit-line-clamp: 2; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* min-height: 44px; */
+  min-height: 26px;
+}
+
+/* Year */
+/* .year {
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+.year .sup {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
+.badge {
+  color: #ffca00;
+  font-size: 0.8rem;
+} */
+
+/* Description */
+.description {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  min-height: 70px;
+}
+
+/* List */
+.list-group {
+  flex-grow: 1;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+
+  font-size: 0.95rem;
+  color: #45464e;
+  min-height: 26px;
+}
+
+.list-group-item img {
+  width: 14px;
+}
+
+/* Button */
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #14cec3;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.3rem;
+
+  padding: 6px 15px;
+  border: none;
+  text-decoration: none;
+
+  margin-top: auto;
+}
+
+.link img {
+  width: 30px;
+  margin-left: 20px;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .image {
+    height: 200px;
+  }
+
+  .description {
+    font-size: 1rem;
+    min-height: 80px;
+  }
+
+  .link img {
+    width: 26px;
+  }
+}
 </style>

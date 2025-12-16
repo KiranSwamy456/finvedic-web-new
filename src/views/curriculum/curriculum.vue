@@ -45,28 +45,39 @@
                             </li>
                             <li class="border-0 list-group-item"></li>
                         </ul>
-                        <a class="btn rounded-pill text-white w-100 mt-4" style="background: #2528CB">
-                            REGISTER NOW <i class="fa-solid fa-circle-arrow-right"></i>
-                        </a>
+                     <router-link
+  to="/register"
+  class="btn rounded-pill text-white w-100 mt-4 d-flex justify-content-center align-items-center gap-2"
+  style="background: #2528CB"
+>
+  REGISTER NOW
+  <i class="fa-solid fa-circle-arrow-right"></i>
+</router-link>
+
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container py-4">
-            <div class="exposer-title">Explore courses</div>
-            <div class="custom-grid">
-                <div v-for="item in data.exploreCourses">
-                    <Card :item="item"/>
-                </div>
-            </div>
-        </div>
+   <div class="container py-4">
+  <div class="exposer-title mb-3">Explore courses</div>
+
+  <div class="custom-grid">
+    <div
+      v-for="(item, index) in data.exploreCourses"
+      :key="index"
+      class="course-tile"
+    >
+      <Card :item="item" />
+    </div>
+  </div>
+</div>
 
         <div class="container py-lg-5 py-4 yearAtAGlance">
             <div class="exposer-title">Year at a Glance – <i style="color: #0F268E">Learning Highlights</i></div>
             <div class="row g-4">
                 <div class="col-12 col-lg-5">
-                    <ul class="list-group border-0 shadow-sm rounded-3">
+                   <ul class="list-group border-0 shadow-sm rounded-3 year-glance-list">
                         <li class="list-group-item header border-none">
                             <div class="row ">
                                 <div class="col-6">Engagement Type</div>
@@ -107,28 +118,52 @@
             </div>
         </div>
 
-        <div class="container py-4 py-md-5">
-            <div class="row justify-content-center text-center">
-                <div class="col-12 exposer-title">Sample Monthly <i style="color: #0F268E">Structure</i></div>
-                <div class="col-12 col-7 exposer-description">Each week is designed to balance learning, discussion, exposure, and problem-solving.</div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-6" v-for="structure in data.monthlyStructure">
-                    <div class="text-center structureMonthTitle py-4">{{ structure.month }} Month</div>
-                    <div class="card rounded-4 p-2 border-0" style="box-shadow: 0px 0px 14px 2px #0000000F;">
-                        <div
-                            v-for="(card, index) in structure.cards"
-                            class="card my-2 p-3 rounded-4 border-0 w-100 position-relative overflow-hidden"
-                            :style="{ background: card.backgroundColor }"
-                        >
-                                <div class="monthCardTitle" :style="{ color: card.titleColor }">{{ card.title }}</div>
-                                <div class="monthCardText text-white fw-bold">{{ card.text }}</div>
-                                <div class="month-card-number">{{ index + 1 }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+   <div class="container py-4 py-md-5">
+  <!-- Title -->
+  <div class="row justify-content-center text-center mb-4">
+    <div class="col-12 exposer-title">
+      Sample Monthly <i style="color: #0F268E">Structure</i>
+    </div>
+    <div class="col-12 col-lg-8 exposer-description">
+      Each week is designed to balance learning, discussion, exposure, and problem-solving.
+    </div>
+  </div>
+
+  <!-- Structure Cards -->
+  <div class="row g-4">
+    <div
+      class="col-12 col-lg-6"
+      v-for="structure in data.monthlyStructure"
+      :key="structure.month"
+    >
+      <div class="monthly-structure-card">
+        <!-- Month Header -->
+        <div
+          class="month-header"
+          :style="{ background: structure.headerColor }"
+        >
+          {{ structure.month }} Month
         </div>
+
+        <!-- Rows -->
+        <div
+          class="month-row"
+          v-for="item in structure.items"
+          :key="item.title"
+        >
+          <span class="row-title">{{ item.title }}</span>
+          <span
+            class="row-frequency"
+            :style="{ color: structure.headerColor }"
+          >
+            {{ item.frequency }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         <div class="container">
             <div class="row g-2">
@@ -195,6 +230,16 @@ import glance2 from "../../assets/glance2.svg";
 import glance3 from "../../assets/glance3.svg";
 import glance4 from "../../assets/glance4.svg";
 import glance5 from "../../assets/glance5.svg";
+import one from "../../assets/curriculumicons/1.svg";
+import two from "../../assets/curriculumicons/2.svg";
+import three from "../../assets/curriculumicons/3.svg";
+import four from "../../assets/curriculumicons/4.svg";
+import five from "../../assets/curriculumicons/5.svg";
+import six from "../../assets/curriculumicons/6.svg";
+import seven from "../../assets/curriculumicons/7.svg";
+import eight from "../../assets/curriculumicons/8.svg";
+import nine from "../../assets/curriculumicons/9.svg";
+import ten from "../../assets/curriculumicons/10.svg";
 export default {
     components: {
         Navbar,
@@ -207,15 +252,15 @@ export default {
             module: {
                 1: {
                     header: {
-                        title: 'Core',
-                        year: '1st Year',
+                        title: 'Core Engineering Foundation',
+                        year: '',
                         description: 'Advanced full-stack development with hands-on projects in front-end, back-end.',
-                        totalHours: '180 Hours',
+                        totalHours: '90 Hours',
                         duration: '1 Year',
                         timings: '10:00 AM – 1:00 PM IST',
                         modeOfDelivery: 'Online classes',
                         keyPoints: [
-                            '2h 30m on-demand video',
+                                '2h 30m on-demand video',
                             '22 coding exercises',
                             '15 articles',
                             'Certificate of completion',
@@ -224,167 +269,110 @@ export default {
                     },
                     exploreCourses: [
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: one,
+                            title: 'HtML & CSS Basics',
+                            // hours: '120 Hours',
+                            description:"Learn to build clean web pages using tags, layouts, Flexbox, and responsive design essentials.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: two,
+                            title: 'Java Script Basics',
+                            // hours: '120 Hours',
+                            description:"Understand variables, functions, DOM manipulation, and build interactive web features.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: three,
+                            title: 'Git & GItHub Basics',
+                            // hours: '120 Hours',
+                            description:"Master version control, commits, branches, and real-world GitHub project workflows.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: four,
+                            title: 'UI/UX Design Thinking',
+                            // hours: '120 Hours',
+                            description:"Explore user-centered design principles, good UX patterns, and rapid prototyping.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: five,
+                            title: 'DevOps In Realworld',
+                            // hours: '120 Hours',
+                            description:"Get introduced to CI/CD pipelines, GitOps practices, and Infrastructure-as-Code basics.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: six,
+                            title: 'SQL Basics',
+                            // hours: '120 Hours',
+                            description:"Learn to write queries, filter data, join tables, and manage structured datasets.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: seven,
+                            title: 'Java Basics',
+                            // hours: '120 Hours',
+                            description:"Understand OOP concepts, classes, methods, and build simple Java-based applications.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: eight,
+                            title: 'Python Basics',
+                            // hours: '120 Hours',
+                            description:"Learn syntax, loops, functions, file handling, and write real-world Python scripts.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: nine,
+                            title: 'Data Stuctures(Intro)',
+                            // hours: '120 Hours',
+                            description:"Understand arrays, lists, stacks, and basic logic building for efficient problem solving.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         },
                         {
-                            image: courseImage,
-                            title: 'Core',
-                            hours: '120 Hours',
-                            description:"Advanced full-stack development with hands-on projects in front-end, back-end.",
-                            keys: ['Full-stack Apps', 'Advanced level'],
+                            image: ten,
+                            title: 'Testing & QA Essentials',
+                            // hours: '120 Hours',
+                            description:"Learn unit testing, test case design, and tools like JUnit/PyTest for quality assurance.",
+                            // keys: ['Full-stack Apps', 'Advanced level'],
                         }
                     ],
-                    monthlyStructure: [
-                        {
-                            month: 1,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        },
-                        {
-                            month: 2,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        }
-                    ],
+                monthlyStructure: [
+  {
+    month: 1,
+    headerColor: "#1A2FD1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+  {
+    month: 2,
+    headerColor: "#00CFC1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+]
+,
                     yearAtAGlance: [
-                        { type: 'Bootcamps', planned: '20 Sessions' },
-                        { type: 'Group Discussions', planned: '60 Sessions' },
-                        { type: 'Seminars', planned: '15 Sessions' },
-                        { type: 'Masterclasses', planned: '30 Sessions' },
-                        { type: 'Engineering Connects', planned: '60 Sessions' },
-                        { type: 'Jirathons', planned: '15 Sessions' }
+                        { type: 'Fundamentals of Distributed Systems', planned: '20 Sessions' },
+                        { type: 'GitHub & GitHub Actions - CI & CD Pipelines', planned: '60 Sessions' },
+                        { type: 'Observability (Grafana/Prometheus)', planned: '15 Sessions' },
+                        { type: 'Redis - The Data on Blink', planned: '30 Sessions' },
+                        { type: 'Coding with Co-Pilot', planned: '60 Sessions' },
+                        { type: 'Prompt Engineering for GenAI & Agentic Systems', planned: '15 Sessions' }
                     ],
                     yearAtAGlanceImages: {
                         masterClass: {
@@ -549,8 +537,8 @@ export default {
                 },
                 2: {
                     header: {
-                        title: 'PreEdge',
-                        year: '2nd Year',
+                        title: 'High Performance Systems Engineering',
+                        year: '',
                         description: 'Professional-grade development with DevOps and cloud technologies',
                         totalHours: '180 Hours',
                         duration: '1 Year',
@@ -636,90 +624,33 @@ export default {
                             keys: ['Full-stack Apps', 'Advanced level'],
                         }
                     ],
-                    monthlyStructure: [
-                        {
-                            month: 1,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        },
-                        {
-                            month: 2,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        }
-                    ],
+                  monthlyStructure: [
+  {
+    month: 1,
+    headerColor: "#1A2FD1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+  {
+    month: 2,
+    headerColor: "#00CFC1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+]
+,
                     yearAtAGlance: [
                         { type: 'Bootcamps', planned: '20 Sessions' },
                         { type: 'Group Discussions', planned: '60 Sessions' },
@@ -907,8 +838,8 @@ tableBody: [
                 },
                 3: {
                     header: {
-                        title: 'MasterTrack',
-                        year: '3rd Year',
+                        title: 'Disruptive Technologies for Digital Economy',
+                        year: '',
                         description: 'Cloud-native applications and FinTech specialization',
                         totalHours: '180 Hours',
                         duration: '1 Year',
@@ -994,90 +925,33 @@ tableBody: [
                             keys: ['Full-stack Apps', 'Advanced level'],
                         }
                     ],
-                    monthlyStructure: [
-                        {
-                            month: 1,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        },
-                        {
-                            month: 2,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        }
-                    ],
+                   monthlyStructure: [
+  {
+    month: 1,
+    headerColor: "#1A2FD1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+  {
+    month: 2,
+    headerColor: "#00CFC1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+]
+,
                     yearAtAGlance: [
                         { type: 'Bootcamps', planned: '20 Sessions' },
                         { type: 'Group Discussions', planned: '60 Sessions' },
@@ -1259,8 +1133,8 @@ tableBody: [
                 },
                 4: {
                     header: {
-                        title: 'Summit',
-                        year: 'Final Year',
+                        title: 'FinTech Specialization',
+                        year: '',
                         description: 'Advanced systems mastery with leadership focus',
                         totalHours: '180 Hours',
                         duration: '1 Year',
@@ -1346,90 +1220,33 @@ tableBody: [
                             keys: ['Full-stack Apps', 'Advanced level'],
                         }
                     ],
-                    monthlyStructure: [
-                        {
-                            month: 1,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        },
-                        {
-                            month: 2,
-                            cards: [
-                                {
-                                    title: 'Bootcamps',
-                                    text: 'Every 2 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1-2 Group Discussions',
-                                    text: 'Evevy week',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1 Seminar every',
-                                    text: '3 weeks',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Masterclass',
-                                    text: 'Every 10 days',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                },
-                                {
-                                    title: '1–2 Engineering Connects',
-                                    text: 'Per week',
-                                    backgroundColor: '#14CEC3',
-                                    titleColor: '#2528CB'
-                                },
-                                {
-                                    title: '1 Jirathon',
-                                    text: 'Every 2–3 weeks',
-                                    backgroundColor: '#2528CB',
-                                    titleColor: '#FFCA00'
-                                }
-                            ]
-                        }
-                    ],
+                  monthlyStructure: [
+  {
+    month: 1,
+    headerColor: "#1A2FD1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+  {
+    month: 2,
+    headerColor: "#00CFC1",
+    items: [
+      { title: "Bootcamps", frequency: "Every 2 weeks" },
+      { title: "1–2 Group Discussions", frequency: "Every week" },
+      { title: "1 Seminar every", frequency: "3 weeks" },
+      { title: "1 Masterclass", frequency: "Every 10 days" },
+      { title: "1–2 Engineering Connects", frequency: "Per week" },
+      { title: "1 Jirathon", frequency: "Every 2–3 weeks" },
+    ],
+  },
+]
+,
                     yearAtAGlance: [
                         { type: 'Bootcamps', planned: '20 Sessions' },
                         { type: 'Group Discussions', planned: '60 Sessions' },
@@ -1671,6 +1488,35 @@ tableBody: [
         font-size: 32px;
         line-height: 36px;
     }
+   .year-glance-list {
+  max-height: calc(48px * 6.2);
+  overflow-y: auto;
+  color: #2528CB;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #2528CB #f1f1f1;
+}
+
+/* Chrome, Edge, Safari */
+.year-glance-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.year-glance-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.year-glance-list::-webkit-scrollbar-thumb {
+  background-color: #2528CB;
+  border-radius: 10px;
+}
+
+.year-glance-list::-webkit-scrollbar-thumb:hover {
+  background-color: #1e21a8; /* slightly darker on hover */
+}
+
     .monthCardText {
         font-size: 24px;
         line-height: 30px;
@@ -1764,6 +1610,44 @@ tableBody: [
             font-size: 16px;
         }
     }
+    .monthly-structure-card {
+  background: #f5f7f7;
+  border-radius: 20px;
+  padding: 20px;
+  height: 100%;
+}
+
+/* Month pill header */
+.month-header {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Row layout */
+.month-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 6px;
+  font-size: 16px;
+}
+
+.row-title {
+  font-weight: 600;
+  color: #0b0f2f;
+}
+
+.row-frequency {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 
     @media only screen and (max-width: 767px) {
         .header-bg {
